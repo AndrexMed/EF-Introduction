@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kzaP7MjmLxX3bomLM39JfclBAh9vfuTOg2pYS00aS2Y1AnGDbpxTQNGq1APoIVPmyOXdCvG01zt7TEsSEELQ4w==",
+  "dgSpecHash": "y4TCwILX9Tsc8nGH1KDAbQHSwt7gi0cf+7HRgodPDz9RyGS5+V4oWieu9FCyOFsoqHFl2CUe7LIValzj889O7g==",
   "success": true,
-  "projectFilePath": "c:\\Users\\giova\\OneDrive\\Escritorio\\Desarrollo-Software\\C#\\IntroEF\\IntroEF.csproj",
+  "projectFilePath": "C:\\Users\\giova\\OneDrive\\Escritorio\\Desarrollo-Software\\C#\\IntroEF\\IntroEF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\giova\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
