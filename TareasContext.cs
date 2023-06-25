@@ -16,5 +16,17 @@ namespace IntroEF
         {
 
         }
+
+        //Mapeando - Fluent API - No need DataAnotations
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            modelbuilder.Entity<Categoria>(categoria => {
+                categoria.ToTable("Categoria");
+                categoria.HasKey(p => p.CategoriaId);
+                categoria.Property(p => p.Nombre).IsRequired().HasMaxLength(150);
+                categoria.Property(p => p.Descripcion);
+
+            });
+        }
     }
 }
