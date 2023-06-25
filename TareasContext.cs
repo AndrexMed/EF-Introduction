@@ -25,6 +25,7 @@ namespace IntroEF
                 categoria.HasKey(c => c.CategoriaId);
                 categoria.Property(c => c.Nombre).IsRequired().HasMaxLength(150);
                 categoria.Property(c => c.Descripcion);
+                categoria.Property(c => c.Peso);
 
             });
 
