@@ -64,3 +64,8 @@ C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\obj\Debug\net7
 C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\obj\Debug\net7.0\IntroEF.pdb
 C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\obj\Debug\net7.0\IntroEF.genruntimeconfig.cache
 C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\obj\Debug\net7.0\ref\IntroEF.dll
+C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\bin\Debug\net7.0\Humanizer.dll
+C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\giova\OneDrive\Escritorio\Desarrollo-Software\C#\IntroEF\bin\Debug\net7.0\System.CodeDom.dll
