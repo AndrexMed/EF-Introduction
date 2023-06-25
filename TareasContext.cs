@@ -42,6 +42,8 @@ namespace IntroEF
                 tarea.Property(t => t.FechaCreacion);
 
                 tarea.Ignore(t => t.Resumen);
+
+                tarea.Property(t => t.pruebaMigration);
             });
         }
     }

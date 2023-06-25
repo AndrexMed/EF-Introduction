@@ -29,6 +29,8 @@ namespace IntroEF.Modelos
 
         //[NotMapped]
         public string Resumen { get; set; } //La vamos ignorar
+
+        public string pruebaMigration { get; set; }
     }
 
     public enum Prioridad
