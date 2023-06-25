@@ -16,7 +16,7 @@ var app = builder.Build();
 app.MapGet("/", () => "Hello World!");
 
 // Ruta para verificar la conexión y el tipo de base de datos utilizada
-app.MapGet("/dbconexion", async ([FromServices] TareasContext dbContext) => 
+app.MapGet("/dbconexion", async ([FromServices] TareasContext dbContext) =>
 {
     dbContext.Database.EnsureCreated();// Asegura que la base de datos esté creada
     return Results.Ok("Base de datos en memoria: " + dbContext.Database.IsInMemory());// Devuelve el resultado indicando si es una base de datos en memoria o no
@@ -80,7 +80,8 @@ app.MapPut("/api/tareas/categoria/{id}", async ([FromServices] TareasContext dbC
 
     var idEntrante = dbContext.Categorias.Find(id);
 
-    if(idEntrante != null){
+    if (idEntrante != null)
+    {
 
         idEntrante.Nombre = categoria.Nombre;
         idEntrante.Descripcion = categoria.Descripcion;
@@ -95,5 +96,19 @@ app.MapPut("/api/tareas/categoria/{id}", async ([FromServices] TareasContext dbC
 
 });
 
+app.MapDelete("/api/tareas/{id}", async ([FromServices] TareasContext dbContext, [FromRoute] Guid id) =>
+{
+
+    var tareaEncontrada = dbContext.Tareas.Find(id);
+
+    if (tareaEncontrada != null)
+    {
+        dbContext.Remove(tareaEncontrada);
+        await dbContext.SaveChangesAsync();
+        return Results.Ok("Se elimino correctamente!");
+
+    }
+    return Results.NotFound("No se encontro la Tarea !!");
+});
 
 app.Run();
