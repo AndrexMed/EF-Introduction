@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace IntroEF.Modelos
@@ -17,6 +18,7 @@ namespace IntroEF.Modelos
 
         public string Descripcion { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Tarea> Tareas{ get; set; }
 
         public int Peso { get; set; }
