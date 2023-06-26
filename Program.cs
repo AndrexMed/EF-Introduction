@@ -10,7 +10,18 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddDbContext<TareasContext> (p => p.UseInMemoryDatabase("TareasDB")); //Config BD In Memory
 builder.Services.AddSqlServer<TareasContext>(builder.Configuration.GetConnectionString("cnTareas"));
 
+// Configuración de CORS
+builder.Services.AddCors();
+
 var app = builder.Build();
+
+// Habilitar CORS
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 
 // Ruta de ejemplo para probar la aplicación
 app.MapGet("/", () => "Hello World!");
@@ -24,16 +35,16 @@ app.MapGet("/dbconexion", async ([FromServices] TareasContext dbContext) =>
 });
 
 //-------------------------------------------------------------------------------------------------------
-// Ruta para obtener todas las tareas con prioridad baja
+// Ruta para obtener todas las tareas
 app.MapGet("/api/tareas", async ([FromServices] TareasContext dbContext) =>
 {
     // Ruta para obtener todas las tareas con prioridad baja
     //return Results.Ok(dbContext.Tareas.Include(p => p.Categoria).Where(p => p.PrioridadTarea == IntroEF.Modelos.Prioridad.Baja));
 
-    //Retorna todas las tareas!!
     return Results.Ok(dbContext.Tareas.Include(p => p.Categoria));
 });
 
+//-------------------------------------------------------------------------------------------------
 // Ruta para agregar una nueva tarea
 app.MapPost("/api/tareas", async ([FromServices] TareasContext dbContext, [FromBody] Tarea tarea) =>
 {
@@ -53,6 +64,7 @@ app.MapPost("/api/tareas", async ([FromServices] TareasContext dbContext, [FromB
 
 
 //---------------------------------------------------------------------------------------------------------------
+//Ruta para actualizar tareas por id
 app.MapPut("/api/tareas/{id}", async ([FromServices] TareasContext dbContext, [FromBody] Tarea tarea, [FromRoute] Guid id) =>
 {
 
@@ -74,7 +86,7 @@ app.MapPut("/api/tareas/{id}", async ([FromServices] TareasContext dbContext, [F
 
 });
 
-
+//---------------------------------------------------------------------------------------------------------------
 app.MapPut("/api/tareas/categoria/{id}", async ([FromServices] TareasContext dbContext, [FromBody] Categoria categoria, [FromRoute] Guid id) =>
 {
 
@@ -110,5 +122,13 @@ app.MapDelete("/api/tareas/{id}", async ([FromServices] TareasContext dbContext,
     }
     return Results.NotFound("No se encontro la Tarea !!");
 });
+
+//Metodo para probar la conexion con los dos servidores...
+app.MapGet("/hello", async (HttpContext context) =>
+{
+    context.Response.Headers.Add("Content-Type", "application/json");
+    await context.Response.WriteAsync("{\"message\": \"Hello World!\"}");
+});
+
 
 app.Run();

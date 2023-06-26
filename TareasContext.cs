@@ -12,6 +12,7 @@ namespace IntroEF
     {
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Tarea> Tareas { get; set; }
+        // public DbSet<Tarifa> tarifas { get; set; }
 
         public TareasContext(DbContextOptions<TareasContext> options) : base(options)
         {
@@ -61,6 +62,19 @@ namespace IntroEF
 
                 tarea.HasData(tareasInit);
             });
+
+
+            // List<Tarifa> tarifas = new List<Tarifa>();
+
+            // modelbuilder.Entity<Tarifa>(tarifa =>
+            // {
+            //     tarifa.ToTable("Tarifa");
+            //     tarifa.HasKey(t => t.CodigoPrograma);
+            //     tarifa.Property(t => t.ValorSemestre);
+            //     tarifa.Property(t => t.Nivel);
+            //     tarifa.Property(t => t.Periodo);
+            //     tarifa.Property(t => t.Año);
+            // });
         }
     }
 }
